@@ -1,0 +1,58 @@
+spring:
+  jpa:
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:postgresql://localhost:5432/utilisateur
+    username: postgres
+    password: utilisateur
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+        register-health-check: false
+    stream:
+      bindings:
+        new-utilisateur:
+          destination: messages
+          group: utilisateur.new
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.utilisateur.new
+        register-utilisateur:
+          destination: messages
+          group: utilisateur.register
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.utilisateur.register
+        update-utilisateur:
+          destination: messages
+          group: utilisateur.update
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.utilisateur.update
+        episode-utilisateur:
+          destination: messages
+          group: utilisateur.episode
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.utilisateur.episode
+        patch-utilisateur:
+          destination: messages
+          group: utilisateur.patch
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.utilisateur.patch
+        delete-utilisateur:
+          destination: messages
+          group: utilisateur.delete
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.utilisateur.delete
+server:
+  error:
+    include-message: always
