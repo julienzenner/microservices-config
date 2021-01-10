@@ -1,0 +1,46 @@
+spring:
+  jpa:
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:postgresql://localhost:5434/episode
+    username: postgres
+    password: episode
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+        register-health-check: false
+    stream:
+      bindings:
+        new-episode:
+          destination: messages
+          group: episode.new
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.episode.new
+        update-episode:
+          destination: messages
+          group: episode.update
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.episode.update
+        patch-episode:
+          destination: messages
+          group: episode.patch
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.episode.patch
+        delete-episode:
+          destination: messages
+          group: episode.delete
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.episode.delete
+server:
+  error:
+    include-message: always
