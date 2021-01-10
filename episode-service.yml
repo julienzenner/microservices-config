@@ -5,7 +5,7 @@ spring:
     hibernate:
       ddl-auto: create
   datasource:
-    url: jdbc:postgresql://localhost:5435/episode
+    url: jdbc:postgresql://localhost:5434/episode
     username: postgres
     password: episode
     driver-class-name: org.postgresql.Driver
@@ -41,14 +41,6 @@ spring:
           binder: rabbit
           consumer:
             bindingRoutingKey: messages.episode.delete
-        ajout-episode-cours:
-          destination: messages
-          group: cours.ajout.episode
-          binder: rabbit
-          producer:
-            requiredGroups: ${spring.cloud.stream.bindings.ajout-episode-cours.group}
-            routingKeyExpression: 'messages.cours.ajout.episode'
-            bindingRoutingKey: messages.cours.ajout.episode
 server:
   error:
     include-message: always
