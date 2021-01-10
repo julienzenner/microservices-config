@@ -116,10 +116,10 @@ spring:
             routingKeyExpression: 'messages.episode.patch'
             bindingRoutingKey: messages.episode.patch
         delete-episode:
-        destination: messages
-        group: episode.delete
-        binder: rabbit
-        producer:
-          requiredGroups: ${spring.cloud.stream.bindings.delete-episode.group}
-          routingKeyExpression: 'messages.episode.delete'
-          bindingRoutingKey: messages.episode.delete
+          destination: messages
+          group: episode.delete
+          binder: rabbit
+          producer:
+            requiredGroups: ${spring.cloud.stream.bindings.delete-episode.group}
+            routingKeyExpression: 'messages.episode.delete'
+            bindingRoutingKey: messages.episode.delete
