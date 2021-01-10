@@ -1,3 +1,12 @@
+
+management:
+  endpoint:
+    beans:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 spring:
   servlet:
     multipart:
