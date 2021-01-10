@@ -1,0 +1,52 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    show-sql: true
+  datasource:
+    initialization-mode: always
+    username: postgres
+    password: cours
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/cours
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+        register-health-check: false
+    stream:
+      bindings:
+        new-cours:
+          destination: messages
+          group: cours.new
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.cours.new
+        update-cours:
+          destination: messages
+          group: cours.update
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.cours.update
+        patch-cours:
+          destination: messages
+          group: cours.patch
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.cours.patch
+        delete-cours:
+          destination: messages
+          group: cours.delete
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.cours.delete
+        new-episode-cours:
+          destination: messages
+          group: cours.new.episode
+          binder: rabbit
+          consumer:
+            bindingRoutingKey: messages.cours.new.episode
+server:
+  error:
+    include-message: always
