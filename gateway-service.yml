@@ -139,5 +139,7 @@ spring:
   cloud:
     consul:
       host: consul
+      discovery:
+        hostname: gateway-service
   rabbitmq:
     host: rabbitmq
