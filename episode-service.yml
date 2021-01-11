@@ -59,8 +59,8 @@ spring:
   profiles: docker
   datasource:
     username: postgres
-    password: cours
-    url: jdbc:postgresql://postgres-cours:5433/cours
+    password: episode
+    url: jdbc:postgresql://postgres-episode:5433/episode
   cloud:
     consul:
       host: consul
