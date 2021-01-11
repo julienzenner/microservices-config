@@ -46,24 +46,22 @@ spring:
           group: cours.new.episode
           binder: rabbit
       rabbit:
-        new-cours:
-          consumer:
-            bindingRoutingKey: messages.cours.new
-        update-cours:
-          consumer:
-            bindingRoutingKey: messages.cours.update
-        patch-cours:
-          consumer:
-            bindingRoutingKey: messages.cours.patch
-        delete-cours:
-          consumer:
-            bindingRoutingKey: messages.cours.delete
-        new-episode-cours:
-          consumer:
-            bindingRoutingKey: messages.cours.new.episode
-
-
-
+        bindings:
+          new-cours:
+            consumer:
+              bindingRoutingKey: messages.cours.new
+          update-cours:
+            consumer:
+              bindingRoutingKey: messages.cours.update
+          patch-cours:
+            consumer:
+              bindingRoutingKey: messages.cours.patch
+          delete-cours:
+            consumer:
+              bindingRoutingKey: messages.cours.delete
+          new-episode-cours:
+            consumer:
+              bindingRoutingKey: messages.cours.new.episode
 server:
   error:
     include-message: always

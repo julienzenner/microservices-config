@@ -42,18 +42,19 @@ spring:
           group: episode.delete
           binder: rabbit
       rabbit:
-        new-episode:
-          consumer:
-            bindingRoutingKey: messages.episode.new
-        update-episode:
-          consumer:
-            bindingRoutingKey: messages.episode.update
-        patch-episode:
-          consumer:
-            bindingRoutingKey: messages.episode.patch
-        delete-episode:
-          consumer:
-            bindingRoutingKey: messages.episode.delete
+        bindings:
+          new-episode:
+            consumer:
+              bindingRoutingKey: messages.episode.new
+          update-episode:
+            consumer:
+              bindingRoutingKey: messages.episode.update
+          patch-episode:
+            consumer:
+              bindingRoutingKey: messages.episode.patch
+          delete-episode:
+            consumer:
+              bindingRoutingKey: messages.episode.delete
 server:
   error:
     include-message: always
