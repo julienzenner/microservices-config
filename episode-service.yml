@@ -64,5 +64,7 @@ spring:
   cloud:
     consul:
       host: consul
+      discovery:
+        hostname: episode-service
   rabbitmq:
     host: rabbitmq
