@@ -50,24 +50,25 @@ spring:
           group: utilisateur.delete
           binder: rabbit
       rabbit:
-        new-utilisateur:
-          consumer:
-            binding-routing-key: messages.utilisateur.new
-        register-utilisateur:
-          consumer:
-            binding-routing-key: messages.utilisateur.register
-        update-utilisateur:
-          consumer:
-            binding-routing-key: messages.utilisateur.update
-        episode-utilisateur:
-          consumer:
-            binding-routing-key: messages.utilisateur.episode
-        patch-utilisateur:
-          consumer:
-            binding-routing-key: messages.utilisateur.patch
-        delete-utilisateur:
-          consumer:
-            binding-routing-key: messages.utilisateur.delete
+        bindings:
+          new-utilisateur:
+            consumer:
+              bindingRoutingKey: messages.utilisateur.new
+          register-utilisateur:
+            consumer:
+              bindingRoutingKey: messages.utilisateur.register
+          update-utilisateur:
+            consumer:
+              bindingRoutingKey: messages.utilisateur.update
+          episode-utilisateur:
+            consumer:
+              bindingRoutingKey: messages.utilisateur.episode
+          patch-utilisateur:
+            consumer:
+              bindingRoutingKey: messages.utilisateur.patch
+          delete-utilisateur:
+            consumer:
+              bindingRoutingKey: messages.utilisateur.delete
 server:
   error:
     include-message: always
