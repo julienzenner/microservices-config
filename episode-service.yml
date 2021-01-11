@@ -53,3 +53,18 @@ spring:
 server:
   error:
     include-message: always
+
+---
+spring:
+  profiles: docker
+  datasource:
+    username: postgres
+    password: cours
+    url: jdbc:postgresql://postgres-cours:5433/cours
+  cloud:
+    consul:
+      host: consul
+      discovery:
+        hostname: consul
+  rabbitmq:
+    host: rabbitmq
