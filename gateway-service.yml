@@ -132,3 +132,14 @@ spring:
             requiredGroups: ${spring.cloud.stream.bindings.delete-episode.group}
             routingKeyExpression: 'messages.episode.delete'
             bindingRoutingKey: messages.episode.delete
+
+---
+spring:
+  profiles: docker
+  cloud:
+    consul:
+      host: consul
+      discovery:
+        hostname: consul
+  rabbitmq:
+    host: rabbitmq
