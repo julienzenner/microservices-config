@@ -26,7 +26,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.new-utilisateur.group}
-            routingKeyExpression: "'messages.utilisateur.new'"
+            routing-key-expression: '''messages.utilisateur.new'''
             bindingRoutingKey: messages.utilisateur.new
         register-utilisateur:
           destination: messages
@@ -34,7 +34,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.register-utilisateur.group}
-            routingKeyExpression: "'messages.utilisateur.register'"
+            routing-key-expression: '''messages.utilisateur.register'''
             bindingRoutingKey: messages.utilisateur.register
         delete-utilisateur:
           destination: messages
@@ -42,7 +42,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.delete-utilisateur.group}
-            routingKeyExpression: "'messages.utilisateur.delete'"
+            routing-key-expression: '''messages.utilisateur.delete'''
             bindingRoutingKey: messages.utilisateur.delete
         update-utilisateur:
           destination: messages
@@ -50,7 +50,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.update-utilisateur.group}
-            routingKeyExpression: "'messages.utilisateur.update'"
+            routing-key-expression: '''messages.utilisateur.update'''
             bindingRoutingKey: messages.utilisateur.update
         episode-utilisateur:
           destination: messages
@@ -58,7 +58,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.episode-utilisateur.group}
-            routingKeyExpression: "'messages.utilisateur.episode'"
+            routing-key-expression: '''messages.utilisateur.episode'''
             bindingRoutingKey: messages.utilisateur.episode
         patch-utilisateur:
           destination: messages
@@ -66,7 +66,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.patch-utilisateur.group}
-            routingKeyExpression: "'messages.utilisateur.patch'"
+            routing-key-expression: '''messages.utilisateur.patch'''
             bindingRoutingKey: messages.utilisateur.patch
         new-cours:
           destination: messages
@@ -74,7 +74,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.new-cours.group}
-            routingKeyExpression: "'messages.cours.new'"
+            routing-key-expression: '''messages.cours.new'''
             bindingRoutingKey: messages.cours.new
         update-cours:
           destination: messages
@@ -82,7 +82,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.update-cours.group}
-            routingKeyExpression: "'messages.cours.update'"
+            routing-key-expression: '''messages.cours.update'''
             bindingRoutingKey: messages.cours.update
         patch-cours:
           destination: messages
@@ -90,7 +90,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.patch-cours.group}
-            routingKeyExpression: "'messages.cours.patch'"
+            routing-key-expression: '''messages.cours.patch'''
             bindingRoutingKey: messages.cours.patch
         delete-cours:
           destination: messages
@@ -98,7 +98,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.delete-cours.group}
-            routingKeyExpression: "'messages.cours.delete'"
+            routing-key-expression: '''messages.cours.delete'''
             bindingRoutingKey: messages.cours.delete
         new-episode:
           destination: messages
@@ -106,7 +106,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.new-episode.group}
-            routingKeyExpression: "'messages.episode.new'"
+            routing-key-expression: '''messages.episode.new'''
             bindingRoutingKey: messages.episode.new
         update-episode:
           destination: messages
@@ -114,7 +114,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.update-episode.group}
-            routingKeyExpression: "'messages.episode.update'"
+            routing-key-expression: '''messages.episode.update'''
             bindingRoutingKey: messages.episode.update
         patch-episode:
           destination: messages
@@ -122,7 +122,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.patch-episode.group}
-            routingKeyExpression: "'messages.episode.patch'"
+            routing-key-expression: '''messages.episode.patch'''
             bindingRoutingKey: messages.episode.patch
         delete-episode:
           destination: messages
@@ -130,7 +130,7 @@ spring:
           binder: rabbit
           producer:
             requiredGroups: ${spring.cloud.stream.bindings.delete-episode.group}
-            routingKeyExpression: "'messages.episode.delete'"
+            routing-key-expression: '''messages.episode.delete'''
             bindingRoutingKey: messages.episode.delete
 
 ---
