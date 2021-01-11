@@ -60,7 +60,7 @@ spring:
   datasource:
     username: postgres
     password: episode
-    url: jdbc:postgresql://postgres-episode:5434/episode
+    url: jdbc:postgresql://postgres-episode:5432/episode
   cloud:
     consul:
       host: consul
