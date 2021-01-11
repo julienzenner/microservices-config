@@ -52,22 +52,22 @@ spring:
       rabbit:
         new-utilisateur:
           consumer:
-            bindingRoutingKey: messages.utilisateur.new
+            binding-routing-key: messages.utilisateur.new
         register-utilisateur:
           consumer:
-            bindingRoutingKey: messages.utilisateur.register
+            binding-routing-key: messages.utilisateur.register
         update-utilisateur:
           consumer:
-            bindingRoutingKey: messages.utilisateur.update
+            binding-routing-key: messages.utilisateur.update
         episode-utilisateur:
           consumer:
-            bindingRoutingKey: messages.utilisateur.episode
+            binding-routing-key: messages.utilisateur.episode
         patch-utilisateur:
           consumer:
-            bindingRoutingKey: messages.utilisateur.patch
+            binding-routing-key: messages.utilisateur.patch
         delete-utilisateur:
           consumer:
-            bindingRoutingKey: messages.utilisateur.delete
+            binding-routing-key: messages.utilisateur.delete
 server:
   error:
     include-message: always
