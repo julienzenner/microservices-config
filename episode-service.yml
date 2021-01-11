@@ -1,4 +1,3 @@
-
 management:
   endpoint:
     beans:
@@ -30,30 +29,34 @@ spring:
           destination: messages
           group: episode.new
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.episode.new
         update-episode:
           destination: messages
           group: episode.update
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.episode.update
         patch-episode:
           destination: messages
           group: episode.patch
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.episode.patch
         delete-episode:
           destination: messages
           group: episode.delete
           binder: rabbit
+      rabbit:
+        new-episode:
+          consumer:
+            bindingRoutingKey: messages.episode.new
+        update-episode:
+          consumer:
+            bindingRoutingKey: messages.episode.update
+        patch-episode:
+          consumer:
+            bindingRoutingKey: messages.episode.patch
+        delete-episode:
           consumer:
             bindingRoutingKey: messages.episode.delete
 server:
   error:
     include-message: always
-
 ---
 spring:
   profiles: docker

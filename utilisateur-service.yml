@@ -1,4 +1,3 @@
-
 management:
   endpoint:
     beans:
@@ -30,42 +29,48 @@ spring:
           destination: messages
           group: utilisateur.new
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.utilisateur.new
         register-utilisateur:
           destination: messages
           group: utilisateur.register
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.utilisateur.register
         update-utilisateur:
           destination: messages
           group: utilisateur.update
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.utilisateur.update
         episode-utilisateur:
           destination: messages
           group: utilisateur.episode
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.utilisateur.episode
         patch-utilisateur:
           destination: messages
           group: utilisateur.patch
           binder: rabbit
-          consumer:
-            bindingRoutingKey: messages.utilisateur.patch
         delete-utilisateur:
           destination: messages
           group: utilisateur.delete
           binder: rabbit
+      rabbit:
+        new-utilisateur:
+          consumer:
+            bindingRoutingKey: messages.utilisateur.new
+        register-utilisateur:
+          consumer:
+            bindingRoutingKey: messages.utilisateur.register
+        update-utilisateur:
+          consumer:
+            bindingRoutingKey: messages.utilisateur.update
+        episode-utilisateur:
+          consumer:
+            bindingRoutingKey: messages.utilisateur.episode
+        patch-utilisateur:
+          consumer:
+            bindingRoutingKey: messages.utilisateur.patch
+        delete-utilisateur:
           consumer:
             bindingRoutingKey: messages.utilisateur.delete
 server:
   error:
     include-message: always
-
 ---
 spring:
   profiles: docker
