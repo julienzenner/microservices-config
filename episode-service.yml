@@ -41,6 +41,12 @@ spring:
           destination: messages
           group: episode.delete
           binder: rabbit
+        new-episode-cours:
+          destination: messages
+          group: cours.new.episode
+          binder: rabbit
+          producer:
+            requiredGroups: ${spring.cloud.stream.bindings.new-episode-cours.group}
       rabbit:
         bindings:
           new-episode:
@@ -55,6 +61,9 @@ spring:
           delete-episode:
             consumer:
               bindingRoutingKey: messages.episode.delete
+          new-episode-cours:
+            producer:
+              bindingRoutingKey: messages.cours.new.episode
 server:
   error:
     include-message: always
