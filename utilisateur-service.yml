@@ -49,6 +49,12 @@ spring:
           destination: messages
           group: utilisateur.delete
           binder: rabbit
+        new-user:
+          destination: messages
+          group: user.new
+          binder: rabbit
+          producer:
+            requiredGroups: ${spring.cloud.stream.bindings.new-user.group}
       rabbit:
         bindings:
           new-utilisateur:
@@ -69,6 +75,10 @@ spring:
           delete-utilisateur:
             consumer:
               bindingRoutingKey: messages.utilisateur.delete
+          new-user:
+            producer:
+              routing-key-expression: "'messages.user.new'"
+              bindingRoutingKey: messages.user.new
 server:
   error:
     include-message: always
